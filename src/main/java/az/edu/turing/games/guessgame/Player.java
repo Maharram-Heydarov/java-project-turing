@@ -1,11 +1,11 @@
 package az.edu.turing.games.guessgame;
 
-public class Players {
+public class Player {
     private String name;
     private int[] guessedNumbers;
     private int guessCount;
 
-    public Players(String name) {
+    public Player(String name) {
         this.name = name;
         this.guessCount = 0;
         this.guessedNumbers = new int[100];

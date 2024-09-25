@@ -67,7 +67,7 @@ public class GameArea {
         }
     }
 
-    public void displayGamePLace() {
+    public void displayGamePlace() {
         System.out.print("  | ");
         for (int i = 0; i < size; i++) {
             System.out.print((i + 1) + " | ");

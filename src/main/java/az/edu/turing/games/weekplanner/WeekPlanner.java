@@ -18,16 +18,16 @@ public class WeekPlanner {
 
     public Optional<Day> findDay(String dayName) {
         for (Day day : schedule) {
-            if (day.getName().equalsIgnoreCase(dayName.trim())) {
+            if (day.getName().equalsIgnoreCase(dayName)) {
                 return Optional.of(day);
             }
         }
         return Optional.empty();
     }
 
-    public void changeTasks(String dayName, String newTasks) {
+    public void changeTask(String dayName, String newTask) {
         Optional<Day> optionalDay = findDay(dayName);
-        optionalDay.ifPresent(day -> day.setTasks(newTasks));
+        optionalDay.ifPresent(day -> day.setTask(newTask));
     }
 
     public Day[] getSchedule() {

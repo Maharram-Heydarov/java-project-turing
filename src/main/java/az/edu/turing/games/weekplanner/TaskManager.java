@@ -22,26 +22,31 @@ public class TaskManager {
             } else if (input.startsWith("change")) {
                 handleTaskChange(input);
             } else {
-                showTasks(input);
+                showTask(input);
             }
         }
     }
 
     private void handleTaskChange(String input) {
-        String dayToChange = input.substring(input.indexOf(' ') + 1).trim();
+        String[] parts = input.split(" ", 2);
+        if (parts.length < 2) {
+            System.out.println("invalid input ,pls provide a day");
+            return;
+        }
+        String dayToChange = parts[1].trim();
         Optional<Day> dayOptional = planner.findDay(dayToChange);
         dayOptional.ifPresentOrElse(day -> {
             System.out.print("pls enter new task for  " + day.getName() + " : ");
             String newTaskss = sc.nextLine();
-            planner.changeTasks(dayToChange, newTaskss);
+            planner.changeTask(dayToChange, newTaskss);
             System.out.println("tasks updated.");
         }, () -> System.out.println("invalid day pls try again."));
     }
 
-    public void showTasks(String dayName) {
+    public void showTask(String dayName) {
         Optional<Day> dayOptional = planner.findDay(dayName);
         dayOptional.ifPresentOrElse(day -> {
-            System.out.println("your tasks for " + day.getName() + " : " + day.getTasks());
+            System.out.println("your tasks for " + day.getName() + " : " + day.getTask());
         }, () -> System.out.println("sorry l don't get it ,pls repeat again ."));
     }
 }

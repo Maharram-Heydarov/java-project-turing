@@ -13,7 +13,7 @@ public class GameController {
 
     public void startGame() {
         System.out.println("All set. Get ready to rumble");
-        gameArea.displayGamePLace();
+        gameArea.displayGamePlace();
         while (true) {
             int row = getValidInput("Enter row (1-5): ") - 1;
             int col = getValidInput("Enter column (1-5): ") - 1;
@@ -27,11 +27,11 @@ public class GameController {
             }
 
             if (gameArea.isTargetDefeated()) {
-                gameArea.displayGamePLace();
+                gameArea.displayGamePlace();
                 System.out.println("you have won ");
                 break;
             }
-            gameArea.displayGamePLace();
+            gameArea.displayGamePlace();
         }
     }
 

@@ -7,7 +7,7 @@ public class GameApp {
         Scanner sc = new Scanner(System.in);
         System.out.print("please enter your name : ");
         String name = sc.nextLine();
-        Players player = new Players(name);
+        Player player = new Player(name);
         GuessGame game = new GuessGame(player);
         game.startGame();
     }
